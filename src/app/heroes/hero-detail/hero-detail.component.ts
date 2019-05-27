@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, mergeMap } from 'rxjs/operators';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 
@@ -22,11 +22,14 @@ export class HeroDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('HeroDetailComponent - ngOnInit');
     this.route.paramMap.pipe(
       switchMap((params: ParamMap) =>
         this.service.getHero(params.get('id')))
-    ).subscribe((hero) => {console.log(`new hero: ${hero.id}`); this.hero = hero});
+    ).subscribe((hero) => { console.log(`new hero: ${hero.id}`); this.hero = hero });
+  }
+
+  gotoHeroes() {
+    this.router.navigate(['/heroes', { id: this.hero.id }]);
   }
 
 }

@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CrisisListComponent } from './crisis-list/crisis-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HeroesModule } from './heroes/heroes.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +16,6 @@ import { HeroesModule } from './heroes/heroes.module';
   imports: [
     BrowserModule,
     FormsModule,
-    HeroesModule,
     AppRoutingModule
   ],
   providers: [],
